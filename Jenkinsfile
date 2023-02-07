@@ -16,7 +16,7 @@ pipeline {
     	agent any
       steps {
         sh 'echo "Pushing Image to ECR..."'
-        sh 'docker push 132737078540.dkr.ecr.us-east-1.amazonaws.com/orabitbul/latest'
+        sh 'docker push 132737078540.dkr.ecr.us-east-1.amazonaws.com/flask_jenkinsapp'
       }
     }
   }
