@@ -1,10 +1,16 @@
 pipeline {
-    agent { docker { image 'python:3.10.7-alpine' } }
-    stages {
-        stage('build') {
-            steps {
-                sh 'python --version'
-            }
-        }
+	agent any
+  stages 
+  {
+    stage('Docker Build') 
+    {
+    	agent any
+      steps {
+        sh 'echo "Building Docker Image..."'
+      	sh 'docker build -t orabitbul/latest .'
+        sh 'docker images'
+      }
     }
+  }
 }
+
