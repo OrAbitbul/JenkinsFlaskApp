@@ -26,8 +26,9 @@ pipeline {
     	agent any
       steps {
         sh 'echo "Connecting to APP server..."'
-      	sh 'ssh -i .ssh/web1-key.pem ubuntu@100.25.135.241'
-        sh 'echo "hello"'
+	sh 'sudo chmod 600 ~/.ssh/web1-key.pem'
+      	sh 'ssh -i ~/.ssh/web1-key.pem ubuntu@100.25.135.241'
+	sh 'echo "shalom"'
       }
     }
   }
