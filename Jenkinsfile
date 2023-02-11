@@ -27,11 +27,7 @@ pipeline {
       steps {
         sh 'echo "Connecting to APP server..."'
 	sh 'sudo chmod 600 ~/.ssh/web1-key.pem'
-      	sh 'ssh -o StrictHostKeyChecking=no -i ~/.ssh/web1-key.pem ubuntu@54.234.100.234
-	"aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 132737078540.dkr.ecr.us-east-1.amazonaws.com; 
-	docker ps -aq | xargs docker stop | xargs docker rm; 
-	docker pull 132737078540.dkr.ecr.us-east-1.amazonaws.com/flask_jenkinsapp:1.0;
-	docker run -itd -p 5000:5000 --name final-cont 132737078540.dkr.ecr.us-east-1.amazonaws.com/flask_jenkinsapp:1.0"'
+      	sh 'ssh -o StrictHostKeyChecking=no -i ~/.ssh/web1-key.pem ubuntu@54.234.100.234 "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 132737078540.dkr.ecr.us-east-1.amazonaws.com; docker ps -aq | xargs docker stop | xargs docker rm; docker pull 132737078540.dkr.ecr.us-east-1.amazonaws.com/flask_jenkinsapp:1.0; docker run -itd -p 5000:5000 --name final-cont 132737078540.dkr.ecr.us-east-1.amazonaws.com/flask_jenkinsapp:1.0"'
       }
     }
   }
