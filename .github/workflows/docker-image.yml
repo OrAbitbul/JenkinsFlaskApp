@@ -36,8 +36,9 @@ jobs:
         IMAGE_TAG: ${{ github.sha }}
       run: |
         # Build a docker container and push it to ECR 
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        echo "Pushing image to ECR..."
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        echo "name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+        docker build -t test .
+        echo "Tagging the image..."
+        docker tag test:latest 132737078540.dkr.ecr.us-east-1.amazonaws.com/flask_jenkinsapp:latest
+        echo "Pushing the image"
+        docker push 132737078540.dkr.ecr.us-east-1.amazonaws.com/flask_jenkinsapp:latest
     
